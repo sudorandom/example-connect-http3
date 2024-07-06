@@ -7,7 +7,6 @@ require (
 	buf.build/gen/go/connectrpc/eliza/protocolbuffers/go v1.34.2-20230913231627-233fca715f49.2
 	connectrpc.com/connect v1.16.2
 	github.com/quic-go/quic-go v0.45.1
-	go.akshayshah.org/connectproto v0.6.0
 	golang.org/x/net v0.26.0
 	golang.org/x/sync v0.7.0
 )

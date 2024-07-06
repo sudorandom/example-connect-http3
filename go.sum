@@ -35,10 +35,6 @@ github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+
 github.com/stretchr/testify v1.6.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.8.4 h1:CcVxjf3Q8PM0mHUKJCdn+eZZtm5yQwehR5yeSVQQcUk=
 github.com/stretchr/testify v1.8.4/go.mod h1:sz/lmYIOXD/1dqDmKjjqLyZ2RngseejIcXlSw2iwfAo=
-go.akshayshah.org/attest v1.0.0 h1:f66BDlh/xo2KjIfmtqOFlj5cpn6mvGrP1LXY3Tex4L0=
-go.akshayshah.org/attest v1.0.0/go.mod h1:PnWzcW5j9dkyGwTlBmUsYpPnHG0AUPrs1RQ+HrldWO0=
-go.akshayshah.org/connectproto v0.6.0 h1:tqmysQF2AfvUeYS03mRAAZTFpiQeXqhGIDnH1GO2D2U=
-go.akshayshah.org/connectproto v0.6.0/go.mod h1:uA9TR/6MhBlLn0fh8VXRyL26EKTJlimWao4jbz7JHbA=
 go.uber.org/mock v0.4.0 h1:VcM4ZOtdbR4f6VXfiOpwpVJDL6lCReaZ6mw31wqh7KU=
 go.uber.org/mock v0.4.0/go.mod h1:a6FSlNadKUHUa9IP5Vyt1zh4fC7uAwxMutEAscFbkZc=
 golang.org/x/crypto v0.24.0 h1:mnl8DM0o513X8fdIkmyFE/5hTYxbwYOjDS/+rK6qpRI=
