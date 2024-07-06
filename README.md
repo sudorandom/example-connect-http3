@@ -9,12 +9,22 @@ openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
     -keyout cert.key  -out cert.crt
 ```
 
-## Starting the server
+## Starting the server (HTTP3 only)
 ```shell
-go run server/main.go
+go run server-single/main.go
 ```
 
-## Running the client
+## Starting the server (HTTP/1.1, HTTP/2 and HTTP/3)
 ```shell
-go run client/main.go
+go run server-multi/main.go
+```
+
+## Running the client (http stdlib)
+```shell
+go run client-http/main.go
+```
+
+## Running the client (connect)
+```shell
+go run client-http/main.go
 ```
