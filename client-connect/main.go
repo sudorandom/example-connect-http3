@@ -5,7 +5,6 @@ import (
 	"crypto/tls"
 	"log"
 	"net/http"
-	_ "net/http/pprof"
 
 	"connectrpc.com/connect"
 	"github.com/quic-go/quic-go/http3"
