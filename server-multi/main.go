@@ -55,7 +55,9 @@ func main() {
 	eg.Go(func() error {
 		return h3srv.ListenAndServeTLS("cert.crt", "cert.key")
 	})
-	eg.Go(srv.ListenAndServe)
+	eg.Go(func() error {
+		return srv.ListenAndServeTLS("cert.crt", "cert.key")
+	})
 	if err := eg.Wait(); err != nil {
 		log.Fatalf("error: %s", err)
 	}
