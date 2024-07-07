@@ -4,7 +4,6 @@ import (
 	"context"
 	"log"
 	"log/slog"
-	"net"
 	"net/http"
 
 	"connectrpc.com/connect"
@@ -35,8 +34,6 @@ func main() {
 	mux := http.NewServeMux()
 	mux.Handle(elizav1connect.NewElizaServiceHandler(&server{}))
 
-	eg, ctx := errgroup.WithContext(context.Background())
-
 	addr := "127.0.0.1:6660"
 	log.Printf("Starting connectrpc on %s", addr)
 	h3srv := http3.Server{
@@ -47,11 +44,9 @@ func main() {
 	srv := http.Server{
 		Addr:    addr,
 		Handler: h2c.NewHandler(mux, &http2.Server{}),
-		BaseContext: func(l net.Listener) context.Context {
-			return ctx
-		},
 	}
 
+	eg, _ := errgroup.WithContext(context.Background())
 	eg.Go(func() error {
 		return h3srv.ListenAndServeTLS("cert.crt", "cert.key")
 	})
