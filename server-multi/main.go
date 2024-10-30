@@ -46,7 +46,7 @@ func main() {
 		Handler: h2c.NewHandler(mux, &http2.Server{}),
 	}
 
-	eg, egCtx := errgroup.WithContext(ctx)
+	eg, egCtx := errgroup.WithContext(context.Background())
 	eg.Go(func() error {
 		return h3srv.ListenAndServeTLS("cert.crt", "cert.key")
 	})
