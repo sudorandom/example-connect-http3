@@ -46,12 +46,27 @@ func main() {
 		Handler: h2c.NewHandler(mux, &http2.Server{}),
 	}
 
-	eg, _ := errgroup.WithContext(context.Background())
+	eg, egCtx := errgroup.WithContext(context.Background())
 	eg.Go(func() error {
 		return h3srv.ListenAndServeTLS("cert.crt", "cert.key")
 	})
 	eg.Go(func() error {
-		return srv.ListenAndServeTLS("cert.crt", "cert.key")
+		<-egCtx.Done()
+		// new context and cancel just for graceful shutdown
+		sdCtx, sdCancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer sdCancel()
+		return h3srv.Shutdown(sdCtx)
+	})
+	eg.Go(func() error {
+		return h2cServer.ListenAndServeTLS("cert.crt", "cert.key")
+	})
+	eg.Go(func() error {
+		<-egCtx.Done()
+		// new context and cancel just for graceful shutdown
+		sdCtx, sdCancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer sdCancel()
+		return h2cServer.Shutdown(sdCtx)
+
 	})
 	if err := eg.Wait(); err != nil {
 		log.Fatalf("error: %s", err)
