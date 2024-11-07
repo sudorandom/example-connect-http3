@@ -26,5 +26,5 @@ go run client-http/main.go
 
 ## Running the client (connect)
 ```shell
-go run client-http/main.go
+go run client-connect/main.go
 ```
